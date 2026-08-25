@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Groove Trainer para bajistas - metrónomo y drum machine de la Escuela de Bajistas de Engativá.">
+    <meta name="theme-color" content="#101010">
+    <title>Groove Trainer V2 | Escuela de Bajistas de Engativá</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+
+    <header class="header">
+        <div class="logo">🎸</div>
+        <div>
+            <h1>GROOVE TRAINER</h1>
+            <p>Escuela de Bajistas de Engativá</p>
+        </div>
+    </header>
+
+    <section class="display-card">
+        <div class="groove-info">
+            <span class="label">GROOVE</span>
+            <h2 id="grooveName">FUNK</h2>
+            <span id="grooveDescription" class="style-description">
+                Groove para practicar precisión y notas muertas.
+            </span>
+        </div>
+
+        <div class="tempo">
+            <span class="label">BPM</span>
+            <strong id="bpm">90</strong>
+        </div>
+    </section>
+
+    <section class="beat-container" aria-label="Pulso">
+        <div class="beat active" id="beat1">1</div>
+        <div class="beat" id="beat2">2</div>
+        <div class="beat" id="beat3">3</div>
+        <div class="beat" id="beat4">4</div>
+    </section>
+
+    <section class="controls">
+        <button id="minusBpm" class="circle-button" aria-label="Disminuir BPM">−</button>
+        <button id="playButton" class="play-button" aria-label="Reproducir">▶</button>
+        <button id="plusBpm" class="circle-button" aria-label="Aumentar BPM">+</button>
+    </section>
+
+    <div class="tempo-controls">
+        <button data-tempo="60">60</button>
+        <button data-tempo="80">80</button>
+        <button data-tempo="90">90</button>
+        <button data-tempo="100">100</button>
+        <button data-tempo="120">120</button>
+    </div>
+
+
+
+    <section class="section metronome-section">
+        <h3>METRÓNOMO</h3>
+
+        <div class="metronome-card">
+            <div class="metronome-header">
+                <div>
+                    <span class="small-label">PULSO</span>
+                    <h4>Metrónomo</h4>
+                    <p>Practica con clic y mantén el tempo mientras usas los ritmos de Drum Machine.</p>
+                </div>
+                <div class="metronome-status" id="metronomeStatus">DETENIDO</div>
+            </div>
+
+            <div class="metronome-beats" aria-label="Pulso del metrónomo">
+                <div class="metro-beat" id="metroBeat1">1</div>
+                <div class="metro-beat" id="metroBeat2">2</div>
+                <div class="metro-beat" id="metroBeat3">3</div>
+                <div class="metro-beat" id="metroBeat4">4</div>
+            </div>
+
+            <div class="metronome-controls">
+                <button id="metronomeMinus" class="circle-button" aria-label="Disminuir BPM">−</button>
+                <div class="metro-bpm"><strong id="metronomeBpm">90</strong><span>BPM</span></div>
+                <button id="metronomePlus" class="circle-button" aria-label="Aumentar BPM">+</button>
+                <button id="metronomePlay" class="metronome-play" aria-label="Iniciar metrónomo">▶</button>
+            </div>
+
+            <div class="metro-options">
+                <label>
+                    <span>SUBDIVISIÓN</span>
+                    <select id="metroSubdivision">
+                        <option value="1">Negras</option>
+                        <option value="2">Corcheas</option>
+                        <option value="4">Semicorcheas</option>
+                    </select>
+                </label>
+                <label class="accent-option">
+                    <input id="metroAccent" type="checkbox" checked>
+                    <span>Acentuar el 1</span>
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>DRUM MACHINE</h3>
+
+        <div class="drum-card">
+            <div class="drum-toolbar">
+                <div>
+                    <span class="small-label">PATRÓN</span>
+                    <h4 id="patternName">Funk 1</h4>
+                </div>
+
+                <div class="swing-control">
+                    <label for="swing">SWING <span id="swingValue">50%</span></label>
+                    <input id="swing" type="range" min="50" max="70" value="50">
+                </div>
+            </div>
+
+            <div class="sequencer" id="sequencer">
+                <!-- Las celdas se generan desde JavaScript -->
+            </div>
+
+            <div class="legend">
+                <span><i class="dot kick"></i> Kick</span>
+                <span><i class="dot snare"></i> Snare</span>
+                <span><i class="dot hihat"></i> Hi-Hat</span>
+            </div>
+
+            <div class="pattern-buttons">
+                <button class="pattern-button selected" data-pattern="funk">Funk 1</button>
+                <button class="pattern-button" data-pattern="rock">Rock</button>
+                <button class="pattern-button" data-pattern="rb">R&B</button>
+                <button class="pattern-button" data-pattern="latin">Latin</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h3>GROOVES</h3>
+
+        <div class="groove-buttons">
+            <button class="groove-button selected" data-groove="FUNK">🥁 <span>Funk</span></button>
+            <button class="groove-button" data-groove="ROCK">🎸 <span>Rock</span></button>
+            <button class="groove-button" data-groove="R&B">🎵 <span>R&B</span></button>
+            <button class="groove-button" data-groove="LATIN">🌴 <span>Latin</span></button>
+        </div>
+    </section>
+
+    <section class="section practice">
+        <h3>ENTRENAMIENTO</h3>
+
+        <div class="practice-card">
+            <span class="small-label">EJERCICIO ACTUAL</span>
+            <h4>Notas muertas</h4>
+            <p>
+                Mantén el pulso y toca notas muertas siguiendo el groove.
+                Comienza lento y aumenta progresivamente el tempo.
+            </p>
+            <button id="practiceButton" class="primary-button">COMENZAR EJERCICIO</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Escuela de Bajistas de Engativá</p>
+    </footer>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
